@@ -11,6 +11,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/icon.css" rel="stylesheet">
 
   </head>
 
@@ -53,73 +54,88 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="image/.jpg">
-              <h4>英雄联盟</h4>
-              <span class="text-muted">Copyright ©龙图游戏</span>
-            </div>
-            <div class="col-xs-18 col-sm-9 placeholder">
-            <br /><br />
-              <textarea id = "null" class="form-control" rows="4" >推广内容</textarea>
-              <br />
-              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="CopyValue()">复制内容</button>
-            </div>
-          </div>
-            <div class="col-xs-6 col-sm-3 " style="text-align:center">
-
-              <div class="btn-group-vertical">
-              <button type="button" class="btn btn-default" onclick="window.open('http://tieba.baidu.com/f?kw=%B5%B6%CB%FE%B4%AB%C6%E6')">百度贴吧</button>
-              <button type="button" class="btn btn-primary" onclick="window.open('http://bbs.mgamer.cn/forum-2132-1.html')">360</button>
-              <button type="button" class="btn btn-success" onclick="window.open('http://bbs.ptbus.com/forum-1316-1.html')">口袋巴士</button>
-              <button type="button" class="btn btn-info" onclick="window.open('http://bbs.4399.cn/forums-mtag-81984')">4399</button>
-              <button type="button" class="btn btn-warning" onclick="window.open('http://bbs.18183.com/forum-daotachuanqi-1.html')">18183</button>
-              <button type="button" class="btn btn-danger" onclick="window.open('#">爱游戏</button>
-              </div>
-
-            </div>
-            <div class="col-xs-18 col-sm-9 ">
+	<div class="well">
+	  <div class="media">
+      <a href="" class="pull-left">
+        <img src="image/lol.png" class="img-rounded icon-150">
+      </a>
+      <div class="media-body">
+        <h4>英雄联盟</h4>
+        <p>《英雄联盟》是由美国Riot Games公司开发的3D竞技场战网游戏，其主创团队是由实力强劲的魔兽争霸系列游戏多人即时对战自定义地图（DOTA-Allstars）的开发团队，以及动视暴雪等著名游戏公司的美术、程序、策划人员组成，将DOTA的玩法从对战平台延伸到网络游戏世界。除了DOTA的游戏节奏、即时战略、团队作战外，《英雄联盟》拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素，让玩家感受全新的英雄对战。</p>
+		<button type="button" class="btn btn-success" onclick="">添加赛事</button>
+		<button type="button" class="btn btn-warning" onclick="">添加队伍</button>
+		<button type="button" class="btn btn-danger" onclick="">添加玩法</button>
+		<button type="button" class="btn btn-primary" onclick="">添加竞猜</button>
+      </div>
+    </div>
+	</div>
 
           <div class="table-responsive">
-            <table class="table table-striped">
+		<div class="panel panel-default">
+			<div class="panel-heading">竞猜信息</div>
+				<table class="table table-hover table-bordered">
               <thead>
                 <tr>
-                  <th>QQ群号</th>
-                  <th>QQ群名</th>
-                  <th>QQ群人数</th>
-                  <th></th>
-                  <th></th>
+                  <th>赛事名称</th>
+                  <th>时间</th>
+                  <th>状态</th>
+                  <th>主队</th>
+                  <th>客队</th>
+                  <th>主胜赔率</th>
+                  <th>主平赔率</th>
+                  <th>主负赔率</th>
+                  <th>主队下注数</th>
+                  <th>客队下注数</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>326107072</td>
+                  <td>/</td>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
                 </tr>
                 <tr>
-                  <td>138068534</td>
+                  <td>/</td>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
                 </tr>
                 <tr>
-                  <td>164183521</td>
+                  <td>/</td>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
                 </tr>
                 <tr>
-                  <td>264520084</td>
+                  <td>/</td>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
                 </tr>
               </tbody>
             </table>

@@ -1,0 +1,20 @@
+.icon-100 {
+width: 100px;
+height: 100px;
+min-width: 100px;
+min-height: 100px;
+}
+
+.icon-150 {
+width: 150px;
+height: 150px;
+min-width: 150px;
+min-height: 150px;
+}
+
+.icon-200 {
+width: 200px;
+height: 200px;
+min-width: 200px;
+min-height: 200px;
+}

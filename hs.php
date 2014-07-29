@@ -47,9 +47,9 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="index.php">ALL</a></li>
-            <li class="active"><a href="lol.php">英雄联盟</a></li>
+            <li><a href="lol.php">英雄联盟</a></li>
             <li><a href="dota2.php">DOTA2</a></li>
-            <li><a href="hs.php">炉石传说</a></li>
+            <li class="active"><a href="hs.php">炉石传说</a></li>
             <li><a href="sc2.php">星际争霸2</a></li>
           </ul>
         </div>
@@ -57,12 +57,12 @@
 	<div class="well">
 	  <div class="media">
       <a href="" class="pull-left">
-        <img src="image/lol.jpg" class="img-rounded icon-150">
+        <img src="image/hs.jpg" class="img-rounded icon-150">
       </a>
       <div class="media-body">
-        <h4>英雄联盟</h4>
-        <p>《英雄联盟》是由美国Riot Games公司开发的3D竞技场战网游戏，其主创团队是由实力强劲的魔兽争霸系列游戏多人即时对战自定义地图（DOTA-Allstars）的开发团队，以及动视暴雪等著名游戏公司的美术、程序、策划人员组成，将DOTA的玩法从对战平台延伸到网络游戏世界。除了DOTA的游戏节奏、即时战略、团队作战外，《英雄联盟》拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素，让玩家感受全新的英雄对战。</p>
-		<button type="button" class="btn btn-primary" onclick="window.open('lol_insert.php')">添加竞猜</button>
+        <h4>炉石传说</h4>
+        <p>《炉石传说：魔兽英雄传》是一款在Windows、Mac系统上推出的免费策略类卡牌游戏。《炉石传说：魔兽英雄传》中国大陆地区独家运营权已被授予网易公司。作为暴雪娱乐公司旗下的一款主打游戏，同时也是经典《魔兽争霸》和《魔兽世界》系列的延伸。在《炉石传说》的游戏中，玩家可以选取魔兽系列中的九大经典英雄人物之一，围绕其英雄的职业为主题组建自己独特的套牌，与其他玩家进行对战，赢取新的卡牌，享受乐趣。</p>
+		<button type="button" class="btn btn-primary" onclick="">添加竞猜</button>
       </div>
     </div>
 	</div>

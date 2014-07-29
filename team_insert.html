@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="http://www.dianjoy.com/wp-content/themes/dian2013/img/logo.png">
+
+    <title>战队信息添加</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+    <link href="css/insert.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+<div class="container">
+
+      <form class="form-signin" action=".php" method="post" role="form">
+        <div class="well" style="text-align:center">
+
+        <h3 class="form-signin-heading">战队信息添加</h3>
+        </div>
+            <div style="text-align:center">
+              <select class="selectpicker"  data-style="btn-primary"  name=''>
+              <optgroup label="游戏名称">
+              <option value='英雄联盟'>英雄联盟</option>
+              <option value='DOTA2'>DOTA2</option>
+              <option value='炉石传说'>炉石传说</option>
+              <option value='星际争霸2'>星际争霸2</option>
+              </optgroup>
+              </select>
+            </div>
+
+        <input type="text" class="form-control" placeholder="战队名称:" name="" required autofocus>
+        <br />
+        <textarea class="form-control" rows="10" placeholder="战队简介:" name="" ></textarea>
+        <br />
+      <div style="text-align:center">
+        <button class="btn btn-primary" type="submit">&nbsp&nbsp提交&nbsp&nbsp</button>
+        <button class="btn btn-default" type="reset">&nbsp&nbsp清空&nbsp&nbsp</button>
+      </div>
+      <br />
+      <button type="button" class="btn btn-block btn-primary" onclick="location.href='index.php'">返回主页</button>
+      </form>
+        
+
+
+  </div>
+  <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/bootstrap-select.js" type="text/javascript"></script>
+  <script type="text/javascript">  
+      window.onload=function(){  
+          $('.selectpicker').selectpicker();  
+      };  
+  </script>
+</body>
+</html>

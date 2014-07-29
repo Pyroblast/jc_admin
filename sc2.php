@@ -47,22 +47,22 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="index.php">ALL</a></li>
-            <li class="active"><a href="lol.php">英雄联盟</a></li>
+            <li><a href="lol.php">英雄联盟</a></li>
             <li><a href="dota2.php">DOTA2</a></li>
             <li><a href="hs.php">炉石传说</a></li>
-            <li><a href="sc2.php">星际争霸2</a></li>
+            <li class="active"><a href="sc2.php">星际争霸2</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	<div class="well">
 	  <div class="media">
       <a href="" class="pull-left">
-        <img src="image/lol.jpg" class="img-rounded icon-150">
+        <img src="image/sc2.jpg" class="img-rounded icon-150">
       </a>
       <div class="media-body">
-        <h4>英雄联盟</h4>
-        <p>《英雄联盟》是由美国Riot Games公司开发的3D竞技场战网游戏，其主创团队是由实力强劲的魔兽争霸系列游戏多人即时对战自定义地图（DOTA-Allstars）的开发团队，以及动视暴雪等著名游戏公司的美术、程序、策划人员组成，将DOTA的玩法从对战平台延伸到网络游戏世界。除了DOTA的游戏节奏、即时战略、团队作战外，《英雄联盟》拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素，让玩家感受全新的英雄对战。</p>
-		<button type="button" class="btn btn-primary" onclick="window.open('lol_insert.php')">添加竞猜</button>
+        <h4>星际争霸2</h4>
+        <p>《星际争霸Ⅱ》（StarCraftⅡ）是由暴雪娱乐在2010年7月27日推出的一款即时战略游戏，作为《星际争霸》的续篇讲述了人族、星灵和异虫三族的故事。《星际争霸Ⅱ》以三部曲的形式推出，即《自由之翼》（Wings of Liberty）、《虫群之心》（Heart of the Swarm）和Legacy of the Void（暂译：虚空之遗）。</p>
+		<button type="button" class="btn btn-primary" onclick="">添加竞猜</button>
       </div>
     </div>
 	</div>

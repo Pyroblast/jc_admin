@@ -47,8 +47,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="index.php">ALL</a></li>
-            <li class="active"><a href="lol.php">英雄联盟</a></li>
-            <li><a href="dota2.php">DOTA2</a></li>
+            <li><a href="lol.php">英雄联盟</a></li>
+            <li class="active"><a href="dota2.php">DOTA2</a></li>
             <li><a href="hs.php">炉石传说</a></li>
             <li><a href="sc2.php">星际争霸2</a></li>
           </ul>
@@ -57,12 +57,12 @@
 	<div class="well">
 	  <div class="media">
       <a href="" class="pull-left">
-        <img src="image/lol.jpg" class="img-rounded icon-150">
+        <img src="image/dota2.png" class="img-rounded icon-150">
       </a>
       <div class="media-body">
-        <h4>英雄联盟</h4>
-        <p>《英雄联盟》是由美国Riot Games公司开发的3D竞技场战网游戏，其主创团队是由实力强劲的魔兽争霸系列游戏多人即时对战自定义地图（DOTA-Allstars）的开发团队，以及动视暴雪等著名游戏公司的美术、程序、策划人员组成，将DOTA的玩法从对战平台延伸到网络游戏世界。除了DOTA的游戏节奏、即时战略、团队作战外，《英雄联盟》拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素，让玩家感受全新的英雄对战。</p>
-		<button type="button" class="btn btn-primary" onclick="window.open('lol_insert.php')">添加竞猜</button>
+        <h4>DOTA2</h4>
+        <p>DOTA2脱离了War3的引擎，由美国Valve公司研发运营，完美世界代理（国服），韩国NEXON代理（韩服），并由DotA的地图核心制作者IceFrog（冰蛙）联手Valve开发的多人联机即时战略游戏。DOTA2整个游戏将会保持原有风格不变，DotA中的100多位英雄正在逐步的移植到DOTA2中。从某种程度上来说，DOTA2是现有DOTA的新引擎版。完美正式宣布DOTA2于2013年4月28日开始测试， 已发布中文名“刀塔”。</p>
+		<button type="button" class="btn btn-primary" onclick="">添加竞猜</button>
       </div>
     </div>
 	</div>

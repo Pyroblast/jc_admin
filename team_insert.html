@@ -18,13 +18,13 @@
   <body>
 <div class="container">
 
-      <form class="form-signin" action=".php" method="post" role="form">
+      <form class="form-signin" action="inc/team_insert.php" method="post" role="form">
         <div class="well" style="text-align:center">
 
         <h3 class="form-signin-heading">战队信息添加</h3>
         </div>
             <div style="text-align:center">
-              <select class="selectpicker"  data-style="btn-primary"  name=''>
+              <select class="selectpicker"  data-style="btn-primary"  name='game_name'>
               <optgroup label="游戏名称">
               <option value='英雄联盟'>英雄联盟</option>
               <option value='DOTA2'>DOTA2</option>
@@ -34,9 +34,9 @@
               </select>
             </div>
 
-        <input type="text" class="form-control" placeholder="战队名称:" name="" required autofocus>
+        <input type="text" class="form-control" placeholder="战队名称:" name="team_name" required autofocus>
         <br />
-        <textarea class="form-control" rows="10" placeholder="战队简介:" name="" ></textarea>
+        <textarea class="form-control" rows="10" placeholder="战队简介:" name="information" ></textarea>
         <br />
       <div style="text-align:center">
         <button class="btn btn-primary" type="submit">&nbsp&nbsp提交&nbsp&nbsp</button>

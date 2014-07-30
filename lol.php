@@ -30,10 +30,10 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Dashboard</a></li>
-            <li><a href="">Settings</a></li>
-            <li><a href="">Profile</a></li>
-            <li><a href="">Help</a></li>
+            <li><a href="competition_insert.html">添加赛事</a></li>
+            <li><a href="team_insert.html">添加战队</a></li>
+            <li><a href="">添加玩法</a></li>
+            <li><a href="game_insert.html">添加游戏</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -62,7 +62,7 @@
       <div class="media-body">
         <h4>英雄联盟</h4>
         <p>《英雄联盟》是由美国Riot Games公司开发的3D竞技场战网游戏，其主创团队是由实力强劲的魔兽争霸系列游戏多人即时对战自定义地图（DOTA-Allstars）的开发团队，以及动视暴雪等著名游戏公司的美术、程序、策划人员组成，将DOTA的玩法从对战平台延伸到网络游戏世界。除了DOTA的游戏节奏、即时战略、团队作战外，《英雄联盟》拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素，让玩家感受全新的英雄对战。</p>
-		<button type="button" class="btn btn-primary" onclick="window.open('lol_insert.php')">添加竞猜</button>
+		<button type="button" class="btn btn-primary" onclick="window.open('jc_insert.php')">添加竞猜</button>
       </div>
     </div>
 	</div>

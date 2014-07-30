@@ -30,10 +30,10 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Dashboard</a></li>
-            <li><a href="">Settings</a></li>
-            <li><a href="">Profile</a></li>
-            <li><a href="">Help</a></li>
+            <li><a href="competition_insert.html">添加赛事</a></li>
+            <li><a href="team_insert.html">添加战队</a></li>
+            <li><a href="">添加玩法</a></li>
+            <li><a href="game_insert.html">添加游戏</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

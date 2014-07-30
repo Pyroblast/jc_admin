@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <link rel="shortcut icon" type="image/png" href="http://www.dianjoy.com/wp-content/themes/dian2013/img/logo.png">
 
-    <title>赛事信息添加</title>
+    <title>游戏信息添加</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,25 +18,15 @@
   <body>
 <div class="container">
 
-      <form class="form-signin" action="inc/competition_insert.php" method="post" role="form">
+      <form class="form-signin" action="inc/game_insert.php" method="post" role="form">
         <div class="well" style="text-align:center">
 
-        <h3 class="form-signin-heading">赛事信息添加</h3>
+        <h3 class="form-signin-heading">游戏信息添加</h3>
         </div>
-            <div style="text-align:center">
-              <select class="selectpicker"  data-style="btn-primary"  name='game_name'>
-              <optgroup label="游戏名称">
-              <option value='英雄联盟'>英雄联盟</option>
-              <option value='DOTA2'>DOTA2</option>
-              <option value='炉石传说'>炉石传说</option>
-              <option value='星际争霸2'>星际争霸2</option>
-              </optgroup>
-              </select>
-            </div>
 
-        <input type="text" class="form-control" placeholder="赛事名称:" name="competition_name" required autofocus>
+        <input type="text" class="form-control" placeholder="游戏名称:" name="game_name" required autofocus>
         <br />
-        <textarea class="form-control" rows="10" placeholder="赛事简介:" name="information" ></textarea>
+        <textarea class="form-control" rows="10" placeholder="游戏简介:" name="information" ></textarea>
         <br />
       <div style="text-align:center">
         <button class="btn btn-primary" type="submit">&nbsp&nbsp提交&nbsp&nbsp</button>

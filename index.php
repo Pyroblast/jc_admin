@@ -32,7 +32,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="competition_insert.html">添加赛事</a></li>
             <li><a href="team_insert.html">添加战队</a></li>
-            <li><a href="">添加玩法</a></li>
+            <li><a href="jc_insert.php">添加竞猜</a></li>
             <li><a href="game_insert.html">添加游戏</a></li>
           </ul>
           <form class="navbar-form navbar-right">
@@ -48,9 +48,9 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="index.php">ALL</a></li>
             <li><a href="lol.php">英雄联盟</a></li>
-            <li><a href="spread3.html">DOTA2</a></li>
-            <li><a href="spread4.html">炉石传说</a></li>
-            <li><a href="spread4.html">星际争霸2</a></li>
+            <li><a href="dota2.php">DOTA2</a></li>
+            <li><a href="hs.php">炉石传说</a></li>
+            <li><a href="sc2.php">星际争霸2</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

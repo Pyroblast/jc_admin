@@ -56,11 +56,11 @@ include("dbc.php");
   <body>
 	<div class="container" style="width:600px">
 		<?php
-				header("refresh:2;url=/jc-admin/jc_insert.php");
+				header("refresh:2;url=/jc-admin/insert/jc_insert.php");
 				echo "<div class='alert alert-success'>添加成功！2秒后自动返回</div>";
 
 			}else{
-				header("refresh:2;url=/jc-admin/jc_insert.php");
+				header("refresh:2;url=/jc-admin/insert/jc_insert.php");
 				echo "<div class='alert alert-danger'>添加失败...2秒后自动返回</div>";
 
 			}

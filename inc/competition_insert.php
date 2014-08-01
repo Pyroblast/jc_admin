@@ -3,12 +3,13 @@ include("dbc.php");
 
 	$game_name=$_POST['game_name'];
 	$competition_name=$_POST['competition_name'];
+	$competition_time=$_POST['competition_time'];
 	$information=$_POST['information'];
 
 	$game_id = mysql_query("select game_id from game where game_name = '$game_name'");
 	$row = mysql_fetch_row($game_id);
 	$game_id = $row[0];
-	if ($game_id && $competition_name && $information){
+	if ($game_id && $competition_name && $competition_time && $information){
 	
 		$sql="SELECT * FROM competition WHERE game_id = '$game_id' and competition_name = '$competition_name'";
 		$res = mysql_query($sql);
@@ -24,7 +25,7 @@ include("dbc.php");
 								</html>";
 						exit;
 					 }
-		$sql="insert into competition(game_id,competition_name,information) values('$game_id','$competition_name','$information')"; 
+		$sql="insert into competition(game_id,competition_name,competition_time,information) values('$game_id','$competition_name','$competition_time','$information')"; 
 		$res = mysql_query($sql);
 			if($res){
 
@@ -48,11 +49,11 @@ include("dbc.php");
   <body>
 	<div class="container" style="width:600px">
 		<?php
-				header("refresh:2;url=/jc-admin/competition_insert.html");
+				header("refresh:2;url=/jc-admin/insert/competition_insert.html");
 				echo "<div class='alert alert-success'>添加成功！2秒后自动返回</div>";
 
 			}else{
-				header("refresh:2;url=/jc-admin/competition_insert.html");
+				header("refresh:2;url=/jc-admin/insert/competition_insert.html");
 				echo "<div class='alert alert-danger'>添加失败...2秒后自动返回</div>";
 
 			}

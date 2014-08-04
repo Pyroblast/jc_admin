@@ -45,6 +45,14 @@ exit;
               <select class="selectpicker"  data-style="btn-primary"  name='game_name'>
               <optgroup label="游戏名称">
                 <?php
+                $game_id=$_GET['game_id'];
+                if ($game_id) {
+                  $sql="select * from game where game_id = '$game_id'";
+                  $result=mysql_query($sql);
+                  $row=mysql_fetch_row($result);
+
+                  echo  "<option value='$row[1]'>$row[1]</option>";
+                } else {
                   $sql="select * from game"; 
                   $result=mysql_query($sql);  
                   $row=mysql_fetch_row($result); 
@@ -54,6 +62,7 @@ exit;
                         "<option value='$row[1]'>$row[1]</option>"; 
                   $row=mysql_fetch_row($result); 
                   }
+                }
                 ?>
               </optgroup>
               </select>

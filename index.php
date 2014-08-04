@@ -37,7 +37,7 @@ include("/inc/dbc.php");
             <li><a href="insert/jc_insert.php">添加竞猜</a></li>
             <li><a href="insert/competition_insert.html">添加赛事</a></li>
             <li><a href="insert/team_insert.html">添加战队</a></li>
-            <li><a href="insert/game_insert.html">添加游戏</a></li>
+            <li><a href="">添加游戏</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -51,10 +51,10 @@ include("/inc/dbc.php");
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="index.php">ALL</a></li>
-            <li><a href="game/lol.php">英雄联盟</a></li>
-            <li><a href="game/dota2.php">DOTA2</a></li>
-            <li><a href="game/hs.php">炉石传说</a></li>
-            <li><a href="game/sc2.php">星际争霸2</a></li>
+            <li><a href="game/game.php?game_id=1">英雄联盟</a></li>
+            <li><a href="game/game.php?game_id=2">DOTA2</a></li>
+            <li><a href="game/game.php?game_id=3">炉石传说</a></li>
+            <li><a href="game/game.php?game_id=4">星际争霸2</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -125,7 +125,7 @@ include("/inc/dbc.php");
                   echo 
                       "
                       <tr>
-                      <td>$row[0]</a></td>
+                      <td>$row[0]</td>
                       <td>$row[1]</td>
                       <td>$row[2]</td>  
                       <td>$row[3]</td>  
@@ -326,28 +326,28 @@ include("/inc/dbc.php");
             <div class='well'>
               <div class='row placeholders'>
                 <div class='col-xs-6 col-sm-3 placeholder'>
-                  <a href='game/lol.php'>
+                  <a href='game/game.php?game_id=1.php'>
                     <img src='image/lol.jpg' class='img-responsive icon-150 img-rounded' >
                     <h4>英雄联盟</h4>
                   </a>
                   <span class='text-muted'>Something else</span>
                 </div>
                 <div class='col-xs-6 col-sm-3 placeholder'>
-                  <a href='game/dota2.php'>
+                  <a href='game/game.php?game_id=2.php'>
                     <img src='image/dota2.png' class='img-responsive icon-150 img-rounded'>
                     <h4>DOTA2</h4>
                   </a>
                   <span class='text-muted'>Something else</span>
                 </div>
                 <div class='col-xs-6 col-sm-3 placeholder'>
-                  <a href='game/hs.php'>
+                  <a href='game/game.php?game_id=3.php'>
                     <img src='image/hs.jpg' class='img-responsive icon-150 img-rounded'>
                     <h4>炉石传说</h4>
                   </a>
                   <span class='text-muted'>Something else</span>
                 </div>
                 <div class='col-xs-6 col-sm-3 placeholder'>
-                  <a href='game/sc2.php'>
+                  <a href='game/game.php?game_id=4.php'>
                     <img src='image/sc2.jpg' class='img-responsive icon-150 img-rounded'>
                     <h4>星际争霸2</h4>
                   </a>

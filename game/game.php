@@ -1,19 +1,5 @@
 <?php
-ob_start();
-session_start();
-$mysql_servername = "localhost"; //主机地址
-$mysql_username = "root"; //数据库用户名
-$mysql_password =""; //数据库密码
-$mysql_database ="jc-admin"; //数据库
-mysql_connect($mysql_servername , $mysql_username , $mysql_password);
-mysql_select_db($mysql_database); 
-mysql_query("set character set 'utf8'");//读库
-mysql_query("set names 'utf8'");//写库
-if(mysqli_connect_errno())
-{
-echo "连接数据库失败";
-exit;
-}
+include("../inc/dbc.php");
 $page=$_GET['page'];  
 
 $game_id = $_GET['game_id'];
@@ -33,11 +19,11 @@ $image_url = $row[3];
     <title>电竞·竞猜-管理员服务</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/jc-admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/jc-admin/css/dashboard.css" rel="stylesheet">
-    <link href="/jc-admin/css/icon.css" rel="stylesheet">
+    <link href="/jc_admin/css/dashboard.css" rel="stylesheet">
+    <link href="/jc_admin/css/icon.css" rel="stylesheet">
 
   </head>
 
@@ -56,9 +42,9 @@ $image_url = $row[3];
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/jc-admin/insert/jc_insert.php">添加竞猜</a></li>
-            <li><a href="/jc-admin/insert/competition_insert.html">添加赛事</a></li>
-            <li><a href="/jc-admin/insert/team_insert.html">添加战队</a></li>
+            <li><a href="/jc_admin/insert/jc_insert.php">添加竞猜</a></li>
+            <li><a href="/jc_admin/insert/competition_insert.html">添加赛事</a></li>
+            <li><a href="/jc_admin/insert/team_insert.html">添加战队</a></li>
             <li><a href="">添加游戏</a></li>
           </ul>
           <form class="navbar-form navbar-right">
@@ -72,35 +58,35 @@ $image_url = $row[3];
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="/jc-admin/index.php">ALL</a></li>
+            <li><a href="/jc_admin/index.php">ALL</a></li>
             <li
             <?php
               if ($game_id == 1){
                 echo "class='active'";
               }   
             ?>
-            ><a href="/jc-admin/game/game.php?game_id=1">英雄联盟</a></li>
+            ><a href="/jc_admin/game/game.php?game_id=1">英雄联盟</a></li>
             <li
             <?php
               if ($game_id == 2){
                 echo "class='active'";
               }   
             ?>
-            ><a href="/jc-admin/game/game.php?game_id=2">DOTA2</a></li>
+            ><a href="/jc_admin/game/game.php?game_id=2">DOTA2</a></li>
             <li
             <?php
               if ($game_id == 3){
                 echo "class='active'";
               }   
             ?>
-            ><a href="/jc-admin/game/game.php?game_id=3">炉石传说</a></li>
+            ><a href="/jc_admin/game/game.php?game_id=3">炉石传说</a></li>
             <li
             <?php
               if ($game_id == 4){
                 echo "class='active'";
               }   
             ?>
-            ><a href="/jc-admin/game/game.php?game_id=4">星际争霸2</a></li>
+            ><a href="/jc_admin/game/game.php?game_id=4">星际争霸2</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -123,10 +109,10 @@ $image_url = $row[3];
             echo $information;
           ?>
         </p>
-    <button type="button" class="btn btn-primary" onclick="window.open('/jc-admin/insert/jc_insert.php?game_id=<?php echo $game_id;?>')">添加竞猜</button>
-    <button type="button" class="btn btn-success" onclick="location.href='/jc-admin/game/game.php?game_id=<?php echo $game_id;?>&type=1'">查看竞猜</button>
-    <button type="button" class="btn btn-warning" onclick="location.href='/jc-admin/game/game.php?game_id=<?php echo $game_id;?>&type=2'">查看赛事</button>
-    <button type="button" class="btn btn-info" onclick="location.href='/jc-admin/game/game.php?game_id=<?php echo $game_id;?>&type=3'">查看队伍</button>
+    <button type="button" class="btn btn-primary" onclick="window.open('/jc_admin/insert/jc_insert.php?game_id=<?php echo $game_id;?>')">添加竞猜</button>
+    <button type="button" class="btn btn-success" onclick="location.href='/jc_admin/game/game.php?game_id=<?php echo $game_id;?>&type=1'">查看竞猜</button>
+    <button type="button" class="btn btn-warning" onclick="location.href='/jc_admin/game/game.php?game_id=<?php echo $game_id;?>&type=2'">查看赛事</button>
+    <button type="button" class="btn btn-info" onclick="location.href='/jc_admin/game/game.php?game_id=<?php echo $game_id;?>&type=3'">查看队伍</button>
       </div>
     </div>
 	</div>
@@ -195,8 +181,8 @@ $image_url = $row[3];
                       <td>$row[10]</td>  
                       <td>$row[11]</td>
                       <td>$row[12]</td>  
-                      <td><a href=/jc-admin/inc/delete.php?table=guess&id=$row[0] target='_black' class='btn btn-danger' role='button'>删</a>
-                          <a href=/jc-admin/change/guess_change.php?table=guess&id=$row[0] target='_black' class='btn btn-primary' role='button'>改</a></td>
+                      <td><a href=/jc_admin/inc/delete.php?table=guess&id=$row[0] target='_black' class='btn btn-danger' role='button'>删</a>
+                          <a href=/jc_admin/change/guess_change.php?table=guess&id=$row[0] target='_black' class='btn btn-primary' role='button'>改</a></td>
                       </tr>
                       "; 
                   $row=mysql_fetch_row($result); 
@@ -269,7 +255,7 @@ $image_url = $row[3];
                       <tr>
                       <td>$row[2]</td>  
                       <td>$row[3]</td>  
-                      <td><a href=/jc-admin/inc/delete.php?table=competition&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
+                      <td><a href=/jc_admin/inc/delete.php?table=competition&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
                   $row=mysql_fetch_row($result); 
@@ -340,7 +326,7 @@ $image_url = $row[3];
                       "
                       <tr>
                       <td>$row[2]</td>  
-                      <td><a href=/jc-admin/inc/delete.php?table=team&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
+                      <td><a href=/jc_admin/inc/delete.php?table=team&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
                   $row=mysql_fetch_row($result); 

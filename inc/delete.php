@@ -10,9 +10,9 @@ include("dbc.php");
 
     <title>删除信息</title>
 
-    <link href="/jc-admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/jc-admin/css/alert.css" rel="stylesheet">
+    <link href="/jc_admin/css/alert.css" rel="stylesheet">
 
   </head>
 
@@ -28,26 +28,26 @@ include("dbc.php");
         case 'competition':
         $sql = "delete from competition where competition_id = '$id'";
         $result=mysql_query($sql);
-        header("refresh:2;url=/jc-admin/index.php");
+        header("refresh:2;url=/jc_admin/index.php");
         echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";  
           break;
 
         case 'guess':
         $sql = "delete from guess where guess_id = '$id'";
         $result=mysql_query($sql);
-        header("refresh:2;url=/jc-admin/index.php");
+        header("refresh:2;url=/jc_admin/index.php");
         echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>"; 
           break;
 
         case 'team':
         $sql = "delete from team where team_id = '$id'";
         $result=mysql_query($sql);
-        header("refresh:2;url=/jc-admin/index.php");
+        header("refresh:2;url=/jc_admin/index.php");
         echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>"; 
           break;
 
         default:
-        header("refresh:2;url=/jc-admin/index.php");
+        header("refresh:2;url=/jc_admin/index.php");
         echo "无";
           break;
       }

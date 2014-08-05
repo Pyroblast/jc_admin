@@ -12,9 +12,9 @@ $result=$_POST['result'];
 
     <title>比赛结果更改</title>
 
-    <link href="/jc-admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/jc-admin/css/alert.css" rel="stylesheet">
+    <link href="/jc_admin/css/alert.css" rel="stylesheet">
 
   </head>
 

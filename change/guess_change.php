@@ -11,19 +11,19 @@ $_SESSION['id'] = $_GET['id'];
     <title>比赛结果更改</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/jc-admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/jc-admin/css/bootstrap-select.css" rel="stylesheet">
-    <link href="/jc-admin/css/insert.css" rel="stylesheet">
-    <link href="/jc-admin/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap-select.css" rel="stylesheet">
+    <link href="/jc_admin/css/insert.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
   </head>
 
   <body>
 <div class="container">
 
-      <form class="form-signin" action="/jc-admin/inc/guess_change_submit.php" method="post" role="form">
+      <form class="form-signin" action="/jc_admin/inc/guess_change_submit.php" method="post" role="form">
         <div class="well" style="text-align:center">
         <h3 class="form-signin-heading">比赛结果更改</h3>
         </div>
@@ -43,16 +43,16 @@ $_SESSION['id'] = $_GET['id'];
         <button class="btn btn-default" type="reset">&nbsp&nbsp清空&nbsp&nbsp</button>
       </div>
       <br />
-      <button type="button" class="btn btn-block btn-primary" onclick="location.href='/jc-admin/index.php'">返回主页</button>
+      <button type="button" class="btn btn-block btn-primary" onclick="location.href='/jc_admin/index.php'">返回主页</button>
       </form>
         
 
 
   </div>
-  <script src="/jc-admin/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-  <script src="/jc-admin/js/bootstrap.js" type="text/javascript"></script>
-  <script src="/jc-admin/js/bootstrap-select.js" type="text/javascript"></script>
-  <script src="/jc-admin/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+  <script src="/jc_admin/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="/jc_admin/js/bootstrap.js" type="text/javascript"></script>
+  <script src="/jc_admin/js/bootstrap-select.js" type="text/javascript"></script>
+  <script src="/jc_admin/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $("#time1").datetimepicker({format: 'yyyy-mm-dd hh:ii:ss'});
     $("#time2").datetimepicker({format: 'yyyy-mm-dd hh:ii:ss'});

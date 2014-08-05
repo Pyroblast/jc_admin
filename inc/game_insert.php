@@ -35,20 +35,20 @@ include("dbc.php");
 
     <title>游戏信息添加</title>
 
-    <link href="/jc-admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/jc_admin/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/jc-admin/css/alert.css" rel="stylesheet">
+    <link href="/jc_admin/css/alert.css" rel="stylesheet">
 
   </head>
 
   <body>
 	<div class="container" style="width:600px">
 		<?php
-				header("refresh:2;url=/jc-admin/insert/game_insert.html");
+				header("refresh:2;url=/jc_admin/insert/game_insert.html");
 				echo "<div class='alert alert-success'>添加成功！2秒后自动返回</div>";
 
 			}else{
-				header("refresh:2;url=/jc-admin/insert/game_insert.html");
+				header("refresh:2;url=/jc_admin/insert/game_insert.html");
 				echo "<div class='alert alert-danger'>添加失败...2秒后自动返回</div>";
 
 			}

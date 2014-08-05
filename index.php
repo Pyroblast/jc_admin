@@ -88,7 +88,8 @@ include("/inc/dbc.php");
                         <th>负赔率</th>
                         <th>平赔率</th>
                         <th>主队下注人数</th>
-                        <th>客队下注人数</th>                        
+                        <th>客队下注人数</th>
+                        <th>结果</th>                        
                         <th>操作</th>
                         </tr>
                       </thead>
@@ -111,32 +112,34 @@ include("/inc/dbc.php");
                 $page=1;
               
               $start=($page-1)*$pagesize;  
-              $sql="SELECT game.game_name,competition.competition_name,guess.start_time,guess.end_time,team.team_name,guess.guest_team_id,guess.win_odds,guess.lose_odds,guess.draw_odds,guess.home_number,guess.guest_number FROM guess,game,competition,team WHERE game.game_id = guess.game_id and competition.competition_id = guess.competition_id and team.team_id = guess.home_team_id limit $start,$pagesize "; 
+              $sql="SELECT guess.guess_id,game.game_name,competition.competition_name,guess.start_time,guess.end_time,team.team_name,guess.guest_team_id,guess.win_odds,guess.lose_odds,guess.draw_odds,guess.home_number,guess.guest_number,guess.result FROM guess,game,competition,team WHERE game.game_id = guess.game_id and competition.competition_id = guess.competition_id and team.team_id = guess.home_team_id limit $start,$pagesize "; 
               $result=mysql_query($sql);  
               $row=mysql_fetch_row($result); 
               
               while($row){ 
-                  $game_id = mysql_query("select game_id from game where game_name = '$row[0]'");
+                  $game_id = mysql_query("select game_id from game where game_name = '$row[1]'");
                   $row_2 = mysql_fetch_row($game_id);
                   $game_id = $row_2[0];
-                  $guest_team_name = mysql_query("select team_name from team where team_id = '$row[5]' and game_id = '$row_2[0]'") ;
+                  $guest_team_name = mysql_query("select team_name from team where team_id = '$row[6]' and game_id = '$row_2[0]'") ;
                   $row_3 = mysql_fetch_row($guest_team_name);
                   $guest_team_name = $row_3[0];
                   echo 
                       "
                       <tr>
-                      <td>$row[0]</td>
                       <td>$row[1]</td>
-                      <td>$row[2]</td>  
+                      <td>$row[2]</td>
                       <td>$row[3]</td>  
                       <td>$row[4]</td>  
+                      <td>$row[5]</td>  
                       <td>$guest_team_name</td>  
-                      <td>$row[6]</td>  
                       <td>$row[7]</td>  
                       <td>$row[8]</td>  
                       <td>$row[9]</td>  
                       <td>$row[10]</td>  
-                      <td><a href='' class='btn btn-danger' role='button'>删除</a></td>
+                      <td>$row[11]</td>
+                      <td>$row[12]</td>  
+                      <td><a href=/jc-admin/inc/delete.php?table=guess&id=$row[0] target='_black' class='btn btn-danger' role='button'>删</a>
+                          <a href=/jc-admin/change/guess_change.php?table=guess&id=$row[0] target='_black' class='btn btn-primary' role='button'>改</a></td>
                       </tr>
                       "; 
                   $row=mysql_fetch_row($result); 
@@ -203,7 +206,7 @@ include("/inc/dbc.php");
                 $page=1;
               
               $start=($page-1)*$pagesize;  
-              $sql="SELECT game.game_name,competition.competition_name,competition.competition_time FROM game,competition WHERE game.game_id = competition.game_id limit $start,$pagesize "; 
+              $sql="SELECT competition.competition_id,game.game_name,competition.competition_name,competition.competition_time FROM game,competition WHERE game.game_id = competition.game_id limit $start,$pagesize "; 
               $result=mysql_query($sql);  
               $row=mysql_fetch_row($result); 
               
@@ -211,10 +214,10 @@ include("/inc/dbc.php");
                   echo 
                       "
                       <tr>
-                      <td>$row[0]</a></td>
-                      <td>$row[1]</td>
-                      <td>$row[2]</td>  
-                      <td><a href='' class='btn btn-danger' role='button'>删除</a></td>
+                      <td>$row[1]</a></td>
+                      <td>$row[2]</td>
+                      <td>$row[3]</td>  
+                      <td><a href=/jc-admin/inc/delete.php?table=competition&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
                   $row=mysql_fetch_row($result); 
@@ -278,7 +281,7 @@ include("/inc/dbc.php");
                 $page=1;
               
               $start=($page-1)*$pagesize;  
-              $sql="SELECT game.game_name,team.team_name FROM game,team WHERE game.game_id = team.game_id limit $start,$pagesize "; 
+              $sql="SELECT team.team_id,game.game_name,team.team_name FROM game,team WHERE game.game_id = team.game_id limit $start,$pagesize "; 
               $result=mysql_query($sql);  
               $row=mysql_fetch_row($result); 
               
@@ -286,9 +289,9 @@ include("/inc/dbc.php");
                   echo 
                       "
                       <tr>
-                      <td>$row[0]</a></td>
-                      <td>$row[1]</td>
-                      <td><a href='' class='btn btn-danger' role='button'>删除</a></td>
+                      <td>$row[1]</a></td>
+                      <td>$row[2]</td>
+                      <td><a href=/jc-admin/inc/delete.php?table=team&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
                   $row=mysql_fetch_row($result); 

@@ -50,31 +50,16 @@ include("dbc.php");
           break;
 
         case 'team':
-        $sql = "select * from team where team_id = '$id'";
-        $rs = $db->query($sql);
-        $row = $rs->fetch();
-        $team_logo_url = $row[4];
-        $team_logo_url = str_replace("/jc_admin", "..", $team_logo_url);
-        if ($team_logo_url) {
-            if (unlink($team_logo_url)) {
-                $sql = "delete from team where team_id = '$id'";
-                $res = $db->exec($sql);
-                    if ($res == 1){
-                        
-                    header("refresh:2;url=/jc_admin/index.php");
-                    echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";            
-                    } else {
-                    header("refresh:2;url=/jc_admin/index.php");
-                    echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";          
-                    }
 
-            } else {
-                header("refresh:2;url=/jc_admin/index.php");
-                echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";                      
-            }
+        $sql = "delete from team where team_id = '$id'";
+        $res = $db->exec($sql);
+        if ($res == 1){
+                        
+        header("refresh:2;url=/jc_admin/index.php");
+        echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";            
         } else {
-            header("refresh:2;url=/jc_admin/index.php");
-            echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";                      
+        header("refresh:2;url=/jc_admin/index.php");
+        echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";          
         }
           break;
 

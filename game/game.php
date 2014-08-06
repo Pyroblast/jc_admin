@@ -257,7 +257,7 @@ $image_url = $row[3];
                       <tr>
                       <td>$row[2]</td>  
                       <td>$row[3]</td>  
-                      <td><a href=/jc_admin/inc/delete.php?table=competition&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
+                      <td><a href=/jc_admin/inc/delete.php?table=competition&id=$row[0] target='_black' class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
                     }  
@@ -324,7 +324,7 @@ $image_url = $row[3];
                       "
                       <tr>
                       <td>$row[2]</td>  
-                      <td><a href=/jc_admin/inc/delete.php?table=team&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
+                      <td><a href=/jc_admin/inc/delete.php?table=team&id=$row[0] target='_black' class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
                     }  

@@ -1,6 +1,6 @@
 <?php
 $page=$_GET['page'];  
-include("/inc/dbc.php");
+include("inc/dbc.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-cn">
@@ -110,31 +110,40 @@ include("/inc/dbc.php");
                 $page=1;
               
               $start=($page-1)*$pagesize;  
-              $sql="SELECT guess.guess_id,game.game_name,competition.competition_name,guess.start_time,guess.end_time,team.team_name,guess.guest_team_id,guess.win_odds,guess.lose_odds,guess.draw_odds,guess.home_number,guess.guest_number,guess.result FROM guess,game,competition,team WHERE game.game_id = guess.game_id and competition.competition_id = guess.competition_id and team.team_id = guess.home_team_id limit $start,$pagesize "; 
+              $sql="SELECT * FROM guess limit $start,$pagesize "; 
               $rs = $db->query($sql);
-              
+
               while($row = $rs->fetch()){ 
-                  $rs1 = $db->query("select game_id from game where game_name = '$row[1]'");
+                  $rs1 = $db->query("select * from game where game_id = '$row[1]'");
                   $result_arr1 = $rs1->fetch();
-                  $game_id = $result_arr1[0];
-                  $rs2 = $db->query("select team_name from team where team_id = '$row[6]' and game_id = '$game_id'") ;
+                  $game_name = $result_arr1[1];
+
+                  $rs2 = $db->query("select * from competition where competition_id = '$row[2]'");
                   $result_arr2 = $rs2->fetch();
-                  $guest_team_name = $result_arr2[0];
+                  $competition_name = $result_arr2[2];
+
+                  $rs3 = $db->query("select * from team where team_id = '$row[8]'") ;
+                  $result_arr3 = $rs3->fetch();
+                  $home_team_name = $result_arr3[2];
+
+                  $rs4 = $db->query("select * from team where team_id = '$row[9]'") ;
+                  $result_arr4 = $rs4->fetch();
+                  $guest_team_name = $result_arr4[2];
                   echo 
                       "
                       <tr>
-                      <td>$row[1]</td>
-                      <td>$row[2]</td>
-                      <td>$row[3]</td>  
-                      <td>$row[4]</td>  
-                      <td>$row[5]</td>  
+                      <td>$game_name</td>
+                      <td>$competition_name</td>
+                      <td>$row[start_time]</td>  
+                      <td>$row[end_time]</td>  
+                      <td>$home_team_name</td>  
                       <td>$guest_team_name</td>  
-                      <td>$row[7]</td>  
-                      <td>$row[8]</td>  
-                      <td>$row[9]</td>  
-                      <td>$row[10]</td>  
-                      <td>$row[11]</td>
-                      <td>$row[12]</td>  
+                      <td>$row[win_odds]</td>  
+                      <td>$row[lose_odds]</td>  
+                      <td>$row[draw_odds]</td>  
+                      <td>$row[home_number]</td>  
+                      <td>$row[guest_number]</td>
+                      <td>$row[result]</td>  
                       <td><a href=/jc_admin/inc/delete.php?table=guess&id=$row[0] target='_black' class='btn btn-danger' role='button'>删</a>
                           <a href=/jc_admin/change/guess_change.php?table=guess&id=$row[0] target='_black' class='btn btn-primary' role='button'>改</a></td>
                       </tr>
@@ -200,14 +209,18 @@ include("/inc/dbc.php");
                 $page=1;
               
               $start=($page-1)*$pagesize;  
-              $sql="SELECT competition.competition_id,game.game_name,competition.competition_name,competition.competition_time FROM game,competition WHERE game.game_id = competition.game_id limit $start,$pagesize "; 
+              $sql="SELECT * FROM competition limit $start,$pagesize "; 
               $rs = $db->query($sql); 
               
               while($row = $rs->fetch()){  
+                  $rs1 = $db->query("select * from game where game_id = '$row[1]'");
+                  $result_arr1 = $rs1->fetch();
+                  $game_name = $result_arr1[1];
+
                   echo 
                       "
                       <tr>
-                      <td>$row[1]</a></td>
+                      <td>$game_name</td>
                       <td>$row[2]</td>
                       <td>$row[3]</td>  
                       <td><a href=/jc_admin/inc/delete.php?table=competition&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
@@ -271,14 +284,18 @@ include("/inc/dbc.php");
                 $page=1;
               
               $start=($page-1)*$pagesize;  
-              $sql="SELECT team.team_id,game.game_name,team.team_name FROM game,team WHERE game.game_id = team.game_id limit $start,$pagesize "; 
+              $sql="SELECT * FROM team limit $start,$pagesize "; 
               $rs = $db->query($sql); 
               
               while($row = $rs->fetch()){  
+                  $rs1 = $db->query("select * from game where game_id = '$row[1]'");
+                  $result_arr1 = $rs1->fetch();
+                  $game_name = $result_arr1[1];
+
                   echo 
                       "
                       <tr>
-                      <td>$row[1]</a></td>
+                      <td>$game_name</td>
                       <td>$row[2]</td>
                       <td><a href=/jc_admin/inc/delete.php?table=team&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>

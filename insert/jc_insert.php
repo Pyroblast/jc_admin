@@ -10,12 +10,12 @@ include("../inc/dbc.php");
     <title>竞猜信息添加</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/jc_admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/jc_admin/css/bootstrap-select.css" rel="stylesheet">
-    <link href="/jc_admin/css/insert.css" rel="stylesheet">
-    <link href="/jc_admin/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-select.css" rel="stylesheet">
+    <link href="../css/insert.css" rel="stylesheet">
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
   </head>
 

@@ -3,8 +3,9 @@ include("../inc/dbc.php");
 $page=$_GET['page'];  
 
 $game_id = $_GET['game_id'];
-$game = mysql_query("select * from game where game_id = '$game_id'");
-$row = mysql_fetch_row($game);
+$sql = "select * from game where game_id = '$game_id'";
+$rs = $db->query($sql);
+$row = $rs->fetch();
 $game_name = $row[1];
 $information = $row[2];
 $image_url = $row[3];
@@ -142,11 +143,9 @@ $image_url = $row[3];
                       </tr>
                     </thead>
                     <tbody>";
-              $sql="select * from guess"; 
+              $rs=$db->query("select * from guess where game_id = '$game_id'")->fetchAll();
+              $rows = count($rs);
               $pagesize=8;  
-              $result=mysql_query($sql); 
-              $row=mysql_fetch_row($result); 
-              $rows=mysql_num_rows($result); 
               
               if($rows%$pagesize==0)  
                 $total=(int)($rows/$pagesize); 
@@ -160,12 +159,11 @@ $image_url = $row[3];
               
               $start=($page-1)*$pagesize;  
               $sql="SELECT guess.guess_id,guess.game_id,competition.competition_name,guess.start_time,guess.end_time,team.team_name,guess.guest_team_id,guess.win_odds,guess.lose_odds,guess.draw_odds,guess.home_number,guess.guest_number,guess.result FROM guess,competition,team WHERE guess.game_id = '$game_id' and competition.competition_id = guess.competition_id and team.team_id = guess.home_team_id limit $start,$pagesize "; 
-              $result=mysql_query($sql);  
-              $row=mysql_fetch_row($result); 
+              $rs = $db->query($sql);
               
-              while($row){ 
-                  $guest_team_name = mysql_query("select team_name from team where team_id = '$row[6]' and game_id = '$row[1]'") ;
-                  $row_2 = mysql_fetch_row($guest_team_name);
+              while($row = $rs->fetch()){ 
+                  $rs1 = $db->query("select team_name from team where team_id = '$row[6]' and game_id = '$row[1]'") ;
+                  $row_2 = $rs1->fetch();
                   $guest_team_name = $row_2[0];
                   echo 
                       "
@@ -185,7 +183,6 @@ $image_url = $row[3];
                           <a href=/jc_admin/change/guess_change.php?table=guess&id=$row[0] target='_black' class='btn btn-primary' role='button'>改</a></td>
                       </tr>
                       "; 
-                  $row=mysql_fetch_row($result); 
                     }  
               echo "
               </tbody>
@@ -228,11 +225,9 @@ $image_url = $row[3];
                       </tr>
                     </thead>
                     <tbody>";
-              $sql="select * from competition"; 
+              $rs=$db->query("select * from competition where game_id = '$game_id'")->fetchAll();
+              $rows = count($rs);
               $pagesize=8;  
-              $result=mysql_query($sql); 
-              $row=mysql_fetch_row($result); 
-              $rows=mysql_num_rows($result); 
               
               if($rows%$pagesize==0)  
                 $total=(int)($rows/$pagesize); 
@@ -246,10 +241,9 @@ $image_url = $row[3];
               
               $start=($page-1)*$pagesize;  
               $sql="SELECT * FROM competition WHERE game_id = '$game_id' limit $start,$pagesize "; 
-              $result=mysql_query($sql);  
-              $row=mysql_fetch_row($result); 
+              $rs = $db->query($sql);
               
-              while($row){ 
+              while($row = $rs->fetch()){ 
                   echo 
                       "
                       <tr>
@@ -258,7 +252,6 @@ $image_url = $row[3];
                       <td><a href=/jc_admin/inc/delete.php?table=competition&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
-                  $row=mysql_fetch_row($result); 
                     }  
               echo "
               </tbody>
@@ -300,11 +293,9 @@ $image_url = $row[3];
                       </tr>
                     </thead>
                     <tbody>";
-              $sql="select * from team"; 
+              $rs=$db->query("select * from team where game_id = '$game_id'")->fetchAll();
+              $rows = count($rs);
               $pagesize=8;  
-              $result=mysql_query($sql); 
-              $row=mysql_fetch_row($result); 
-              $rows=mysql_num_rows($result); 
               
               if($rows%$pagesize==0)  
                 $total=(int)($rows/$pagesize); 
@@ -318,10 +309,9 @@ $image_url = $row[3];
               
               $start=($page-1)*$pagesize;  
               $sql="SELECT * FROM team WHERE game_id = '$game_id' limit $start,$pagesize "; 
-              $result=mysql_query($sql);  
-              $row=mysql_fetch_row($result); 
+              $rs = $db->query($sql); 
               
-              while($row){ 
+              while($row = $rs->fetch()){ 
                   echo 
                       "
                       <tr>
@@ -329,7 +319,6 @@ $image_url = $row[3];
                       <td><a href=/jc_admin/inc/delete.php?table=team&id=$row[0] class='btn btn-danger' role='button'>删除</a></td>
                       </tr>
                       "; 
-                  $row=mysql_fetch_row($result); 
                     }  
               echo "
               </tbody>

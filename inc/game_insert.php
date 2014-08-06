@@ -7,8 +7,8 @@ include("dbc.php");
 	if ($game_name && $information){
 	
 		$sql="SELECT * FROM game WHERE game_name = '$game_name'";
-		$res = mysql_query($sql);
-		$rows=mysql_num_rows($res);
+		$rs = $db->query($sql);
+		$rows = $rs->fetch();
 
 			if($rows){
 						echo "	<!DOCTYPE html>
@@ -21,8 +21,8 @@ include("dbc.php");
 						exit;
 					 }
 		$sql="insert into game(game_name,information) values('$game_name','$information')"; 
-		$res = mysql_query($sql);
-			if($res){
+		$res = $db->exec($sql);
+			if($res == 1){
 
 
 ?>

@@ -14,27 +14,27 @@ include("dbc.php");
 	$create_time=date("Y-m-d H:i:s");
 	$update_time=date("Y-m-d H:i:s");
 
-	$game_id_result = mysql_query("select game_id from game where game_name = '$game_name'");
-	$row = mysql_fetch_row($game_id_result);
-	$game_id = $row[0];
+	$game_id_result = $db->query("select game_id from game where game_name = '$game_name'");
+	$rs1 = $game_id_result->fetch();
+	$game_id = $rs1[0];
 
-	$competition_id_result = mysql_query("select competition_id from competition where competition_name = '$competition_name' and game_id = '$game_id'");
-	$row = mysql_fetch_row($competition_id_result);
-	$competition_id = $row[0];
+	$competition_id_result = $db->query("select competition_id from competition where competition_name = '$competition_name' and game_id = '$game_id'");
+	$rs2 = $competition_id_result->fetch();
+	$competition_id = $rs2[0];
 
-	$home_team_id_result = mysql_query("select team_id from team where team_name = '$home_team_name' and game_id = '$game_id'");
-	$row = mysql_fetch_row($home_team_id_result);
-	$home_team_id = $row[0];
+	$home_team_id_result = $db->query("select team_id from team where team_name = '$home_team_name' and game_id = '$game_id'");
+	$rs3 = $home_team_id_result->fetch();
+	$home_team_id = $rs3[0];
 
-	$guest_team_id_result = mysql_query("select team_id from team where team_name = '$guest_team_name' and game_id = '$game_id'");
-	$row = mysql_fetch_row($guest_team_id_result);
-	$guest_team_id = $row[0];
+	$guest_team_id_result = $db->query("select team_id from team where team_name = '$guest_team_name' and game_id = '$game_id'");
+	$rs4 = $guest_team_id_result->fetch();
+	$guest_team_id = $rs4[0];
 
 	if ($game_id && $competition_id && $state && $home_team_id && $guest_team_id && $start_time && $end_time && $win_odds && $lose_odds && $draw_odds && $create_time && $update_time){
 	
 		$sql="insert into guess(game_id,competition_id,state,home_team_id,guest_team_id,start_time,end_time,win_odds,lose_odds,draw_odds,create_time,update_time) values('$game_id','$competition_id','$state','$home_team_id','$guest_team_id','$start_time','$end_time','$win_odds','$lose_odds','$draw_odds','$create_time','$update_time')"; 
-		$res = mysql_query($sql);
-			if($res){
+		$res = $db->exec($sql);
+			if($res == 1){
 
 
 ?>

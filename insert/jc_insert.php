@@ -33,19 +33,17 @@ include("../inc/dbc.php");
                 $game_id=$_GET['game_id'];
                 if ($game_id) {
                   $sql="select * from game where game_id = '$game_id'";
-                  $result=mysql_query($sql);
-                  $row=mysql_fetch_row($result);
+                  $rs = $db->query($sql);
+                  $row = $rs->fetch();
 
                   echo  "<option value='$row[1]'>$row[1]</option>";
                 } else {
                   $sql="select * from game"; 
-                  $result=mysql_query($sql);  
-                  $row=mysql_fetch_row($result); 
+                  $rs = $db->query($sql);  
           
-                  while($row){  
+                  while($row = $rs->fetch()){  
                     echo 
                         "<option value='$row[1]'>$row[1]</option>"; 
-                  $row=mysql_fetch_row($result); 
                   }
                 }
                 ?>
@@ -56,15 +54,23 @@ include("../inc/dbc.php");
               <select class="selectpicker"  data-style="btn-primary"  name='competition_name'>
               <optgroup label="赛事名称">
                 <?php
-                  $sql="select * from competition where game_id = '1'"; 
-                  $result=mysql_query($sql);  
-                  $row=mysql_fetch_row($result); 
+                if ($game_id) {
+                  $sql="select * from competition where game_id = '$game_id'"; 
+                  $rs = $db->query($sql); 
           
-                  while($row){  
+                  while($row = $rs->fetch()){  
                     echo 
                         "<option value='$row[2]'>$row[2]</option>"; 
-                  $row=mysql_fetch_row($result); 
-                  }  
+                    }
+                  } else {
+                  $sql="select * from competition"; 
+                  $rs = $db->query($sql);  
+          
+                  while($row = $rs->fetch()){  
+                    echo 
+                        "<option value='$row[2]'>$row[2]</option>"; 
+                  }                    
+                }
                 ?>
               </optgroup>
               </select>
@@ -81,15 +87,23 @@ include("../inc/dbc.php");
               <select class="selectpicker"  data-style="btn-primary"  name='home_team_name'>
               <optgroup label="主队">
                 <?php
-                  $sql="select * from team where game_id = '1'"; 
-                  $result=mysql_query($sql);  
-                  $row=mysql_fetch_row($result); 
+                if ($game_id) {
+                  $sql="select * from team where game_id = '$game_id'"; 
+                  $rs = $db->query($sql);  
           
-                  while($row){  
+                  while($row = $rs->fetch()){  
                     echo 
                         "<option value='$row[2]'>$row[2]</option>"; 
-                  $row=mysql_fetch_row($result); 
-                  }  
+                    }
+                  } else {
+                  $sql="select * from team"; 
+                  $rs = $db->query($sql);  
+          
+                  while($row = $rs->fetch()){  
+                    echo 
+                        "<option value='$row[2]'>$row[2]</option>"; 
+                  }                    
+                }  
                 ?>
               </optgroup>
               </select>
@@ -98,15 +112,23 @@ include("../inc/dbc.php");
               <select class="selectpicker"  data-style="btn-primary"  name='guest_team_name'>
               <optgroup label="客队">
                 <?php
-                  $sql="select * from team where game_id = '1'"; 
-                  $result=mysql_query($sql);  
-                  $row=mysql_fetch_row($result); 
+                if ($game_id) {
+                  $sql="select * from team where game_id = '$game_id'"; 
+                  $rs = $db->query($sql);  
           
-                  while($row){  
+                  while($row = $rs->fetch()){  
                     echo 
                         "<option value='$row[2]'>$row[2]</option>"; 
-                  $row=mysql_fetch_row($result); 
-                  }  
+                    }
+                  } else {
+                  $sql="select * from team"; 
+                  $rs = $db->query($sql);  
+          
+                  while($row = $rs->fetch()){  
+                    echo 
+                        "<option value='$row[2]'>$row[2]</option>"; 
+                  }                    
+                }  
                 ?>
               </optgroup>
               </select>

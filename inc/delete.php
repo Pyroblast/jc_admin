@@ -27,23 +27,55 @@ include("dbc.php");
 		  switch ($table) {
         case 'competition':
         $sql = "delete from competition where competition_id = '$id'";
-        $result=mysql_query($sql);
+        $res = $db->exec($sql);
+        if ($res == 1){
         header("refresh:2;url=/jc_admin/index.php");
-        echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";  
+        echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";            
+        } else {
+        header("refresh:2;url=/jc_admin/index.php");
+        echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";          
+        }
           break;
 
         case 'guess':
         $sql = "delete from guess where guess_id = '$id'";
-        $result=mysql_query($sql);
+        $res = $db->exec($sql);
+        if ($res == 1){
         header("refresh:2;url=/jc_admin/index.php");
-        echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>"; 
+        echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";            
+        } else {
+        header("refresh:2;url=/jc_admin/index.php");
+        echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";          
+        }
           break;
 
         case 'team':
-        $sql = "delete from team where team_id = '$id'";
-        $result=mysql_query($sql);
-        header("refresh:2;url=/jc_admin/index.php");
-        echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>"; 
+        $sql = "select * from team where team_id = '$id'";
+        $rs = $db->query($sql);
+        $row = $rs->fetch();
+        $team_logo_url = $row[4];
+        $team_logo_url = str_replace("/jc_admin", "..", $team_logo_url);
+        if ($team_logo_url) {
+            if (unlink($team_logo_url)) {
+                $sql = "delete from team where team_id = '$id'";
+                $res = $db->exec($sql);
+                    if ($res == 1){
+                        
+                    header("refresh:2;url=/jc_admin/index.php");
+                    echo "<div class='alert alert-success'>删除成功！2秒后返回首页</div>";            
+                    } else {
+                    header("refresh:2;url=/jc_admin/index.php");
+                    echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";          
+                    }
+
+            } else {
+                header("refresh:2;url=/jc_admin/index.php");
+                echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";                      
+            }
+        } else {
+            header("refresh:2;url=/jc_admin/index.php");
+            echo "<div class='alert alert-danger'>删除失败...2秒后返回首页</div>";                      
+        }
           break;
 
         default:

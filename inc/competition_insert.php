@@ -6,14 +6,14 @@ include("dbc.php");
 	$competition_time=$_POST['competition_time'];
 	$information=$_POST['information'];
 
-	$game_id = mysql_query("select game_id from game where game_name = '$game_name'");
-	$row = mysql_fetch_row($game_id);
+	$rs = $db->query("select game_id from game where game_name = '$game_name'");
+	$row = $rs->fetch();
 	$game_id = $row[0];
 	if ($game_id && $competition_name && $competition_time && $information){
 	
 		$sql="SELECT * FROM competition WHERE game_id = '$game_id' and competition_name = '$competition_name'";
-		$res = mysql_query($sql);
-		$rows=mysql_num_rows($res);
+		$rs = $db->query($sql);
+		$rows = $rs->fetch();
 
 			if($rows){
 						echo "	<!DOCTYPE html>
@@ -26,8 +26,8 @@ include("dbc.php");
 						exit;
 					 }
 		$sql="insert into competition(game_id,competition_name,competition_time,information) values('$game_id','$competition_name','$competition_time','$information')"; 
-		$res = mysql_query($sql);
-			if($res){
+		$res = $db->exec($sql);
+			if($res == 1){
 
 
 ?>

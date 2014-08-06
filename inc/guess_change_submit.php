@@ -23,8 +23,12 @@ $result=$_POST['result'];
 		<?php
 		if ($id) {
 			$sql = "update guess set result = '$result' where guess_id = '$id'";
-			mysql_query($sql);
-			echo "<div class='alert alert-success'>更改成功！</div>";
+			$res = $db->exec($sql);
+			if ($res == 1) {
+				echo "<div class='alert alert-success'>更改成功！</div>";
+			} else {
+				echo "<div class='alert alert-danger'>更改失败...</div>";
+			}
 		}else{
 			echo "<div class='alert alert-danger'>更改失败...</div>";
 		}

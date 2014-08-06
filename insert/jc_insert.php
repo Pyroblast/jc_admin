@@ -157,8 +157,16 @@ include("../inc/dbc.php");
   <script src="/jc_admin/js/bootstrap-select.js" type="text/javascript"></script>
   <script src="/jc_admin/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
   <script type="text/javascript">
-    $("#time1").datetimepicker({format: 'yyyy-mm-dd hh:ii:ss'});
-    $("#time2").datetimepicker({format: 'yyyy-mm-dd hh:ii:ss'});
+    $("#time1").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii:00',
+      minView: '1',
+      todayBtn: "linked",
+    });
+    $("#time2").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii:00',
+      minView: '1',
+      todayBtn: "linked",
+    });
 
   </script> 
 

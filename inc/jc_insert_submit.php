@@ -27,6 +27,7 @@ include("dbc.php");
 	$guest_team_name=$_POST['guest_team_name'];
 	$start_time=$_POST['start_time'];
 	$end_time=$_POST['end_time'];
+	$match_time=$_POST['match_time'];
 	$win_odds=$_POST['win_odds'];
 	$lose_odds=$_POST['lose_odds'];
 	$draw_odds=$_POST['draw_odds'];
@@ -49,9 +50,9 @@ include("dbc.php");
 	$rs4 = $guest_team_id_result->fetch();
 	$guest_team_id = $rs4[0];
 
-	if ($game_id && $competition_id && $state && $home_team_id && $guest_team_id && $start_time && $end_time && $win_odds && $lose_odds && $draw_odds && $create_time && $update_time){
+	if ($game_id && $competition_id && $state && $home_team_id && $guest_team_id && $start_time && $end_time && $match_time && $win_odds && $lose_odds && $draw_odds && $create_time && $update_time){
 	
-		$sql="insert into guess(game_id,competition_id,state,home_team_id,guest_team_id,start_time,end_time,win_odds,lose_odds,draw_odds,create_time,update_time) values('$game_id','$competition_id','$state','$home_team_id','$guest_team_id','$start_time','$end_time','$win_odds','$lose_odds','$draw_odds','$create_time','$update_time')"; 
+		$sql="insert into guess(game_id,competition_id,state,home_team_id,guest_team_id,start_time,end_time,match_time,win_odds,lose_odds,draw_odds,create_time,update_time) values('$game_id','$competition_id','$state','$home_team_id','$guest_team_id','$start_time','$end_time','$match_time','$win_odds','$lose_odds','$draw_odds','$create_time','$update_time')"; 
 		$res = $db->exec($sql);
 			if($res == 1){
 

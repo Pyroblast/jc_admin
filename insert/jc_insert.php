@@ -134,7 +134,8 @@ include("../inc/dbc.php");
               </select>
             </div>
         <input type="text" class="form-control" placeholder="开始下注时间:" name="start_time" id="time1"><br>      
-        <input type="text" class="form-control" placeholder="截止下注时间:" name="end_time" id="time2"><br>      
+        <input type="text" class="form-control" placeholder="截止下注时间:" name="end_time" id="time2"><br>
+        <input type="text" class="form-control" placeholder="比赛开始时间:" name="match_time" id="time3"><br>      
         <input type="text" class="form-control" placeholder="胜赔率:" name="win_odds" required autofocus>
         <br />
         <input type="text" class="form-control" placeholder="负赔率:" name="lose_odds" required>
@@ -163,6 +164,11 @@ include("../inc/dbc.php");
       todayBtn: "linked",
     });
     $("#time2").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii:00',
+      minView: '1',
+      todayBtn: "linked",
+    });
+    $("#time3").datetimepicker({
       format: 'yyyy-mm-dd hh:ii:00',
       minView: '1',
       todayBtn: "linked",

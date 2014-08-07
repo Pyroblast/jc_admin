@@ -131,6 +131,7 @@ $image_url = $row[3];
                           <th>赛事名称</th>
                           <th>开始下注时间</th>
                           <th>截止下注时间</th>
+                          <th>比赛开始时间</th>
                           <th>主队</th>
                           <th>客队</th>
                           <th>胜赔率</th>
@@ -162,23 +163,24 @@ $image_url = $row[3];
               $rs = $db->query($sql);
               
               while($row = $rs->fetch()){ 
-                  $rs2 = $db->query("select * from competition where competition_id = '$row[2]'");
+                  $rs2 = $db->query("select * from competition where competition_id = '$row[competition_id]'");
                   $result_arr2 = $rs2->fetch();
-                  $competition_name = $result_arr2[2];
+                  $competition_name = $result_arr2[competition_name];
 
-                  $rs3 = $db->query("select * from team where team_id = '$row[8]'") ;
+                  $rs3 = $db->query("select * from team where team_id = '$row[home_team_id]'") ;
                   $result_arr3 = $rs3->fetch();
-                  $home_team_name = $result_arr3[2];
+                  $home_team_name = $result_arr3[team_name];
 
-                  $rs4 = $db->query("select * from team where team_id = '$row[9]'") ;
+                  $rs4 = $db->query("select * from team where team_id = '$row[guest_team_id]'") ;
                   $result_arr4 = $rs4->fetch();
-                  $guest_team_name = $result_arr4[2];
+                  $guest_team_name = $result_arr4[team_name];
                   echo 
                       "
                       <tr>
                       <td>$competition_name</td>
                       <td>$row[start_time]</td>  
-                      <td>$row[end_time]</td>  
+                      <td>$row[end_time]</td>
+                      <td>$row[match_time]</td>  
                       <td>$home_team_name</td>  
                       <td>$guest_team_name</td>  
                       <td>$row[win_odds]</td>  

@@ -78,8 +78,8 @@ include("../inc/dbc.php");
             <div style="text-align:center">
               <select class="selectpicker"  data-style="btn-primary"  name='state'>
               <optgroup label="状态">
-              <option value='未赛'>未赛</option>
-              <option value='已赛'>已赛</option>
+              <option value='0'>未赛</option>
+              <option value='1'>已赛</option>
               </optgroup>
               </select>
             </div>

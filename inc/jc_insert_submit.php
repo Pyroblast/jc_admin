@@ -50,7 +50,7 @@ include("dbc.php");
 	$rs4 = $guest_team_id_result->fetch();
 	$guest_team_id = $rs4[0];
 
-	if ($game_id && $competition_id && $state && $home_team_id && $guest_team_id && $start_time && $end_time && $match_time && $win_odds && $lose_odds && $draw_odds && $create_time && $update_time){
+	if ($game_id && $competition_id && $home_team_id && $guest_team_id && $start_time && $end_time && $match_time && $win_odds && $lose_odds && $draw_odds && $create_time && $update_time){
 	
 		$sql="insert into guess(game_id,competition_id,state,home_team_id,guest_team_id,start_time,end_time,match_time,win_odds,lose_odds,draw_odds,create_time,update_time) values('$game_id','$competition_id','$state','$home_team_id','$guest_team_id','$start_time','$end_time','$match_time','$win_odds','$lose_odds','$draw_odds','$create_time','$update_time')"; 
 		$res = $db->exec($sql);

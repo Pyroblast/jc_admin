@@ -88,8 +88,7 @@ include("inc/dbc.php");
                         <th>胜赔率</th>
                         <th>负赔率</th>
                         <th>平赔率</th>
-                        <th>主队下注人数</th>
-                        <th>客队下注人数</th>
+                        <th>总下注人数</th>
                         <th>结果</th>                        
                         <th>操作</th>
                         </tr>
@@ -143,8 +142,7 @@ include("inc/dbc.php");
                       <td>$row[win_odds]</td>  
                       <td>$row[lose_odds]</td>  
                       <td>$row[draw_odds]</td>  
-                      <td>$row[home_number]</td>  
-                      <td>$row[guest_number]</td>
+                      <td>$row[bet_number]</td>  
                       <td>$row[result]</td>  
                       <td><a href=/jc_admin/inc/delete.php?table=guess&id=$row[0] target='_black' class='btn btn-danger' role='button'>删</a>
                           <a href=/jc_admin/change/guess_change.php?table=guess&id=$row[0] target='_black' class='btn btn-primary' role='button'>改</a></td>

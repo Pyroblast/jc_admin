@@ -22,7 +22,7 @@ $result=$_POST['result'];
 	<div class="container" style="width:600px">
 		<?php
 		if ($id) {
-			$sql = "update guess set result = '$result' where guess_id = '$id'";
+			$sql = "update guess set result = '$result' , state = '1' where guess_id = '$id'";
 			$res = $db->exec($sql);
 			if ($res == 1) {
 				echo "<div class='alert alert-success'>更改成功！</div>";

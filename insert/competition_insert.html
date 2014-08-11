@@ -18,7 +18,7 @@
   <body>
 <div class="container">
 
-      <form class="form-signin" action="/jc_admin/inc/competition_insert.php" method="post" role="form">
+      <form class="form-signin" action="/jc_admin/inc/competition_insert.php" method="post" enctype="multipart/form-data" role="form">
         <div class="well" style="text-align:center">
 
         <h3 class="form-signin-heading">赛事信息添加</h3>
@@ -39,6 +39,8 @@
         <input type="text" class="form-control" placeholder="比赛时间:" name="competition_time" required>
         <br />
         <textarea class="form-control" rows="10" placeholder="赛事简介:" name="information" ></textarea>
+        <br />
+        <input type="file" class="form-control" name="file" id="file" >
         <br />
       <div style="text-align:center">
         <button class="btn btn-primary" type="submit">&nbsp&nbsp提交&nbsp&nbsp</button>

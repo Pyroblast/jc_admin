@@ -64,6 +64,7 @@ include("inc/dbc.php");
               <a href="index.php?type=2" class="btn btn-success" role="button">查看所有赛事</a>
               <a href="index.php?type=3" class="btn btn-warning" role="button">查看所有队伍</a>
               <a href="index.php" class="btn btn-info" role="button">查看所有游戏</a>
+              <a href="index.php?type=4" class="btn btn-danger" role="button">查看所有用户</a>
             </div>
           </div>
 
@@ -328,7 +329,63 @@ include("inc/dbc.php");
                       </div>";
                     }
               break;
+                
+            case '4':
+              echo "
+                <div class='panel panel-default'>
+                  <div class='panel-heading'>用户信息</div>
+                    <table class='table table-hover table-bordered'>
+                      <thead>
+                        <tr>
+                        <th width='28%'>用户名</th>
+                        <th width='20%'>注册时间</th>
+                        <th width='15%'>积分</th>
+                        <th width='22%'>昵称</th>
+                        <th width='15%'>注册ip</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      ";
+    if(!$page)$page = 0;
+    $size = 10;
+    $limit = $page * $size;
+    $sql = "select count(*) as c from cai_user";
+    $rs =  $db->query($sql);
+    $rss = $rs->fetch();
+    $count_num = $rss["c"];
+    $page_num = ceil($count_num/$size);
+    $sql = "select * from cai_user limit $limit,$size";
+    $rs =  $db->query($sql);
+    foreach ($rs->fetchAll() as $key => $value) {
+                      echo 
+                      "
+                      <tr>
+                      <td>$value[uname]</td>
+                      <td>$value[ctime]</td>  
+                      <td>$value[score]</td>
+                      <td>$value[nickname]</td>  
+                      <td>$value[regest_ip]</td>
+                      </tr>
+                      ";
+}
+              echo "
+              </tbody>
+              </table>
+              </div>
+              </div>
+              <div style='text-align:center'>
+              <ul class='pagination'>
+              ";
+          for($i=0;$i<$page_num;$i++) {
+                 $j = $i + 1;
+            echo "<li><a href='index.php?type=4&page=" . $i . "'>" . $j . "</a></li>" ;
 
+            } 
+            echo "</ul>
+                  </div>";
+
+              break;
+                
             default:
               echo "
             <div class='well'>
@@ -363,6 +420,7 @@ include("inc/dbc.php");
                 </div>
               </div>
             </div>";
+
               break;
           }
 

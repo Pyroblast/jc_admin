@@ -92,7 +92,7 @@ include("dbc.php");
 	}
 else
   {
-	header("refresh:2;url=/jc_admin/insert/team_insert.html");
+	header("refresh:2;url=/jc_admin/insert/competition_insert.html");
 	echo "<div class='alert alert-danger'>添加失败...2秒后自动返回</div>"; 
 	}
 		?>

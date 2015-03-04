@@ -1,5 +1,7 @@
 <?php
 include("dbc.php");
+include("func.php");
+
 $id = $_SESSION['id'];
 $result=$_POST['result'];
 ?>
@@ -22,10 +24,15 @@ $result=$_POST['result'];
 	<div class="container" style="width:600px">
 		<?php
 		if ($id) {
-			$sql = "update guess set result = '$result' , state = '1' where guess_id = '$id'";
+			$sql = "update guess set result = '$result',state = 1 where guess_id = '$id'";
 			$res = $db->exec($sql);
 			if ($res == 1) {
-				echo "<div class='alert alert-success'>更改成功！</div>";
+                $re = guess_result($id,$result);
+                if(1> $re['status']){
+                    echo "<div class='alert alert-success'> {$re['msg']}</div>";
+                }else{
+                    echo "<div class='alert alert-success'>更改成功！</div>";
+                }
 			} else {
 				echo "<div class='alert alert-danger'>更改失败...</div>";
 			}

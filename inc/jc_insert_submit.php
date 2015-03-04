@@ -65,7 +65,7 @@ include("dbc.php");
 
 				}
 			}
-			else 
+			else
 			{
 				echo "			<!DOCTYPE html>
 							  	<html>

@@ -337,29 +337,38 @@ include("inc/dbc.php");
                     <table class='table table-hover table-bordered'>
                       <thead>
                         <tr>
-                        <th width='28%'>用户名</th>
+                        <th width='11%'>id</th>
+                        <th width='22%'>用户名</th>
                         <th width='20%'>注册时间</th>
-                        <th width='15%'>积分</th>
+                        <th width='10%'>积分</th>
                         <th width='22%'>昵称</th>
                         <th width='15%'>注册ip</th>
                         </tr>
                       </thead>
                       <tbody>
                       ";
-    if(!$page)$page = 0;
-    $size = 10;
-    $limit = $page * $size;
-    $sql = "select count(*) as c from cai_user";
-    $rs =  $db->query($sql);
-    $rss = $rs->fetch();
-    $count_num = $rss["c"];
-    $page_num = ceil($count_num/$size);
-    $sql = "select * from cai_user limit $limit,$size";
-    $rs =  $db->query($sql);
+              $rs=$db->query("select * from cai_user")->fetchAll();
+              $rows = count($rs);
+              $pagesize=8;  
+              
+              if($rows%$pagesize==0)  
+                $total=(int)($rows/$pagesize); 
+              else   
+                $total=(int)($rows/$pagesize)+1; 
+              
+              if(isset($_GET['page'])) 
+                $page=(int)($_GET['page']); 
+              else  
+                $page=1;
+              
+              $start=($page-1)*$pagesize;  
+              $sql="SELECT * FROM cai_user limit $start,$pagesize "; 
+              $rs = $db->query($sql); 
     foreach ($rs->fetchAll() as $key => $value) {
                       echo 
                       "
                       <tr>
+                      <td>$value[id]</td>
                       <td>$value[uname]</td>
                       <td>$value[ctime]</td>  
                       <td>$value[score]</td>
@@ -373,16 +382,27 @@ include("inc/dbc.php");
               </table>
               </div>
               </div>
+
               <div style='text-align:center'>
               <ul class='pagination'>
-              ";
-          for($i=0;$i<$page_num;$i++) {
-                 $j = $i + 1;
-            echo "<li><a href='index.php?type=4&page=" . $i . "'>" . $j . "</a></li>" ;
+              <li><a href=index.php?type=4&page=1>&laquo;</a></li>
 
-            } 
-            echo "</ul>
-                  </div>";
+              ";
+              if($page==1){
+                echo "<li><a href='#'>$page</a></li>";
+                }
+              if($page>1){  
+                $prev=$page-1;
+                echo "<li><a href=index.php?type=4&page=$prev>前一页</a></li>
+                      <li><a href='#'>$page</a></li>";
+                      } 
+              if($page<$total){ 
+                $next=$page+1; 
+                echo "<li><a href=index.php?type=4&page=$next>下一页</a></li>
+                      <li><a href=index.php?type=4&page=$total>&raquo;</a></li>
+                      </ul>
+                      </div>";
+                    }
 
               break;
                 

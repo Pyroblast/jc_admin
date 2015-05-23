@@ -11,9 +11,9 @@
 
 ### Screenshoot
 
-![github](https://raw.githubusercontent.com/Pyroblast/jc_admin/master/preview1.png)
+![github](https://raw.githubusercontent.com/Pyroblast/jc_admin/master/preview_1.png)
 ----------
-![github](https://raw.githubusercontent.com/Pyroblast/jc_admin/master/preview2.png)
+![github](https://raw.githubusercontent.com/Pyroblast/jc_admin/master/preview_2.png)
 ----------
 
 ###Contact
